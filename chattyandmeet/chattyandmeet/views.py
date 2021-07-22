@@ -6,6 +6,8 @@ User=get_user_model()
 
 
 
+def musidebar(request):
+    return render(request,"index.php")
 
 
 def search_user(request):

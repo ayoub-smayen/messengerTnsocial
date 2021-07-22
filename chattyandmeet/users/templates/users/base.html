@@ -44,12 +44,32 @@ color:grren;
 <body data-user-status="{{ user.is_authenticated }}">
 
 	{% if user.is_authenticated %}
+
+
 		<nav class="navbar navbar-expand-sm  navbar-light" style="background:#1af">
 	  		<a href="{% url 'users-home' %}" class="navbar-brand">
-				<img src="{% static 'users/images/gh.jpg' %}" alt="Mitron" id="logo">
-			<h1 style="color:gold"> Meetandchat</h1>
+				<img src="{% static 'users/images/gh.jpg' %}" alt="Meetandchat" id="logo" class="img-thumbnail" height="100" width="100">
+			<small style="color:gold"> Tn-media </small>
 
 			</a>
+
+
+			{% if user.profile.display_picture%}
+            <a href="{% url 'musidebar' %}" >
+                <img src="{{ user.profile.display_picture.url }}" alt="Display Picture" style="border-radius:50%" height="100" width="100">
+            <small class="badge badge-primary">
+                {{user.username}}
+            </small>
+            </a>
+
+			{% else %}
+			<a href="{% url 'musidebar'%}" >
+            <img src="{%  static 'avatar-bg.jpg' %}" alt="Display Picture" class="img-thumbnail dp" height="100" width="100">
+            <small class="badge badge-primary">
+                {{user.username}}
+            </small>
+            </a>
+			{% endif %}
 
 		  	<form class="form-inline pl-3 pr-2">
 		  		<div class="input-group">
@@ -78,7 +98,11 @@ color:grren;
 				<ul id="navbar-list" class="navbar-nav">
 			    	{% if request.user.profile.first_name %}
 				    	<li class="nav-item ml-2">
-							<a id="home-url" class="nav-link" href="{% url 'users-home' %}">Home</a>
+							<a id="home-url" class="nav-link" href="{% url 'users-home' %}">
+							    <i class="fa fa-home">
+
+							    </i>
+							</a>
 						</li>
 					{% endif %}
 			    	<li class="nav-item ml-2">
@@ -90,7 +114,11 @@ color:grren;
 						</li>
 					{% endif %}
 				    <li class="nav-item dropdown ml-2">
-						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Settings</a>
+						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+						    <i class="fa fa-cog">
+
+						    </i>
+						</a>
 						<div id="settings" class="dropdown-menu">
 							<a href="{% url 'users-blocked-list' %}" class="dropdown-item">Blocked users</a>
 							<div class="dropdown-divider"></div>
@@ -127,7 +155,9 @@ color:grren;
 						</div>
 				    </li>
 				    <li class="nav-item ml-2">
-						<a class="nav-link" href="{% url 'logout' %}">Log out</a>
+						<a class="nav-link" href="{% url 'logout' %}">
+						  logout
+						</a>
 				    </li>
 			  	</ul>
 			</div>

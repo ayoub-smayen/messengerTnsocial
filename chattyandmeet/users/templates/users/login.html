@@ -1,9 +1,9 @@
 {% extends "users/base.html" %}
-{% load crispy_forms_tags %}	
+{% load crispy_forms_tags %}
 {% block content %}
 
 	<div class="container mt-3">
-		<h1 class="font-weight-bold text-center">WELCOME</h1>	
+		<h1 class="font-weight-bold text-center">WELCOME</h1>
 		<div class="row justify-content-center">
 			<div class="col-sm-5">
 				<form method="POST" id="login">
@@ -17,7 +17,7 @@
 						</button>
 					</div>
 					<div class="small">
-						<div class="row ml-1 mt-2"> 
+						<div class="row ml-1 mt-2">
 							<a class="font-weight-bold text-info" href="{% url 'password_reset' %}">Forgot password?
 							</a>
 						</div>
@@ -31,4 +31,6 @@
 			</div>
 		</div>
 	</div>
+
+
 {% endblock content %}

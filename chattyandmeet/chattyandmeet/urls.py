@@ -26,9 +26,10 @@ from users import views as user_views
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import  search_user
+from .views import  search_user,musidebar
 urlpatterns = [
     path('search-user/', search_user,name="search-user"),
+    path('sider/', musidebar,name="musidebar"),
     path('admin/', admin.site.urls),
     path('', user_views.init, name='init'),
     path('login/', user_views.login_view, name='login'),
